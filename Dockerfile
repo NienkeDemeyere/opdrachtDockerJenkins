@@ -24,10 +24,3 @@ COPY package*.json ./
 
 # install app dependencies
 RUN npm install
-
-# copy app source code
-COPY . .
-
-# expose port and start the app
-EXPOSE 3000
-CMD ["npm", "start"]
