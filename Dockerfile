@@ -1,10 +1,7 @@
-    FROM node
-    WORKDIR /usr/src/app
-    COPY package*.json ./
-    RUN npm install -y
 
     FROM jenkins/jenkins:lts
     USER root
+    RUN npm install -y
     RUN apt-get -y update && \
      apt-get install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common
     RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add
