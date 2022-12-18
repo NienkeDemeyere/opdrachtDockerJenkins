@@ -11,16 +11,22 @@
      apt-get -y install docker-ce docker-ce-cli containerd.io
     RUN usermod -aG docker jenkins
 
-FROM node:14-alpine
+    FROM node:14-alpine
+    # install npm
+    RUN apk add --update npm
 
-# install npm
-RUN apk add --update npm
+    # create app directory
+    WORKDIR /usr/src/app
 
-# create app directory
-WORKDIR /usr/src/app
+    # copy package.json and package-lock.json
+    COPY package*.json ./
 
-# copy package.json and package-lock.json
-COPY package*.json ./
+    # install app dependencies
+    RUN npm install
 
-# install app dependencies
-RUN npm install
+    # copy app source code
+    COPY . .
+
+    # expose port and start the app
+    EXPOSE 3000
+    CMD ["npm", "start"]
