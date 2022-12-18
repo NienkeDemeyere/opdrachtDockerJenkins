@@ -1,5 +1,7 @@
 pipeline {
-    agent node
+    agent {
+        label: 'Node19.2'
+    }
     stages {
         stage('Build') {
             steps {
