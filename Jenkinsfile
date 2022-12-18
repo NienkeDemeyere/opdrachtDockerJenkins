@@ -2,7 +2,6 @@ pipeline {
     agent {
         node {
             label 'Node19.2'
-            runtime 'Node19.2'
         }
     }
     stages {
