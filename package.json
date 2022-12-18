@@ -1,0 +1,21 @@
+{
+  "name": "opdracht_jenkins-nienkedemeyere",
+  "version": "1.0.0",
+  "description": "github repo : https://github.com/NienkeDemeyere/opdrachtDockerJenkins",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NienkeDemeyere/opdrachtDockerJenkins.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NienkeDemeyere/opdrachtDockerJenkins/issues"
+  },
+  "homepage": "https://github.com/NienkeDemeyere/opdrachtDockerJenkins#readme"
+}

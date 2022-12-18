@@ -1,3 +1,8 @@
+    FROM node
+    WORKDIR /usr/src/app
+    COPY package*.json ./
+    RUN npm install -y
+
     FROM jenkins/jenkins:lts
     USER root
     RUN apt-get -y update && \
@@ -10,23 +15,3 @@
     RUN apt-get update && \
      apt-get -y install docker-ce docker-ce-cli containerd.io
     RUN usermod -aG docker jenkins
-
-    FROM node:14-alpine
-    # install npm
-    RUN apk add --update npm
-
-    # create app directory
-    WORKDIR /usr/src/app
-
-    # copy package.json and package-lock.json
-    COPY package*.json ./
-
-    # install app dependencies
-    RUN npm install
-
-    # copy app source code
-    COPY . .
-
-    # expose port and start the app
-    EXPOSE 3000
-    CMD ["npm", "start"]
